@@ -1,0 +1,22 @@
+<section class="group-page">
+    <h1> PAgina de groupes para el user <%=@current_user.name%> </h1>
+    <div class="group-card-container" >
+    <% @groups.each do |group| %>
+        <div class="card-container">
+            <img src=<%= group.icon%> class="group-icon">
+            <div>
+                <p> <%= group.name %> </p>
+            </div>
+        </div>
+    
+    <% end %>
+
+    </div>
+
+    <div class="buttons-container">
+        <a href="/groups/new" class="button"> Crear grupo </a>
+    </div>
+
+</section>
+
+
