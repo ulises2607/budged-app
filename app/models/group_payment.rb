@@ -4,6 +4,4 @@ class GroupPayment < ApplicationRecord
 
   validates :group, presence: true
   validates :payment, presence: true
-  
-
 end
