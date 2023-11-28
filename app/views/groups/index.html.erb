@@ -1,5 +1,10 @@
 <section class="group-page">
-    <h1> PAgina de groupes para el user <%=@current_user.name%> </h1>
+    <nav>
+        <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
+        <button type="submit" class="nav-link">Logout</button>
+      <% end %>
+    </nav>
+    <h1> Pagina de groups para el user <%=@current_user.name%> </h1>
     <div class="group-card-container" >
     <% @groups.each do |group| %>
         <div class="card-container">
@@ -13,7 +18,7 @@
 
     </div>
 
-    <div class="buttons-container">
+    <div class="group-button-container">
         <a href="/groups/new" class="button"> Crear grupo </a>
     </div>
 
