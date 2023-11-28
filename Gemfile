@@ -69,5 +69,5 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'rubocop'
 gem 'devise'
+gem 'rubocop'
