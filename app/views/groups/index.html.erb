@@ -7,12 +7,14 @@
     <h1> Pagina de groups para el user <%=@current_user.name%> </h1>
     <div class="group-card-container" >
     <% @groups.each do |group| %>
+        <%= link_to group_payments_path do%>
         <div class="card-container">
             <img src=<%= group.icon%> class="group-icon">
             <div>
                 <p> <%= group.name %> </p>
             </div>
         </div>
+        <% end %>
     
     <% end %>
 
