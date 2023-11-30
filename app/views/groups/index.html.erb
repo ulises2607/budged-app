@@ -1,29 +1,46 @@
-<section class="group-page">
-    <nav>
-        <%= form_with(url: destroy_user_session_path, method: :delete, local: false) do |form| %>
-        <button type="submit" class="nav-link">Logout</button>
-      <% end %>
-    </nav>
-    <h1> Pagina de groups para el user <%=@current_user.name%> </h1>
-    <div class="group-card-container" >
-    <% @groups.each do |group| %>
-        <%= link_to group_payments_path do%>
-        <div class="card-container">
-            <img src=<%= group.icon%> class="group-icon">
-            <div>
-                <p> <%= group.name %> </p>
-            </div>
-        </div>
-        <% end %>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+
+    .group-page {
+        padding-top: 56px;
+    }
     
+    .group-page .card {
+        height: 100%;
+    }
+    
+    .group-page .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+</style>
+
+
+<section class="group-page">
+  <nav class="navbar navbar-light bg-light">
+    <%= form_with(url: destroy_user_session_path, method: :delete, local: false, class: "form-inline") do |form| %>
+      <button type="submit" class="btn btn-outline-danger">Logout</button>
     <% end %>
+  </nav>
 
+  <div class="container mt-4">
+    <h1 class="mb-4">Welcome to the Groups Page, <%= @current_user.name %></h1>
+
+    <div class="card-columns d-flex ">
+      <% @groups.each do |group| %>
+        <div class="card mb-4">
+          <%= link_to group_group_payments_path(group), class: "card" do %>
+            <img src="<%= group.icon %>" alt="<%= group.name %> Icon" class="card-img-top">
+            <div class="card-body">
+              <p class="card-text"><%= group.name %></p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
 
-    <div class="group-button-container">
-        <%= link_to "Create a new group", new_group_path  %>
+    <div class="text-center">
+      <%= link_to "Create a new group", new_group_path, class: "btn btn-primary" %>
     </div>
-
+  </div>
 </section>
-
-
