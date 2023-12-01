@@ -1,0 +1,10 @@
+<h1>Group payments pagina principal</h1>
+
+<%@payments.each do |payment| %>
+  <%= image_tag("send-money.png", alt: "send money icon") %>
+  <p> <%= payment.name %> </p>
+  <p>$ <%= payment.amount %> </p>
+  <p> <%= payment.created_at.strftime('%d %b %Y') %> </p>
+<% end %>
+
+<%= link_to "Save", new_group_payment_path %>

@@ -1,0 +1,2 @@
+module GroupPaymentsHelper
+end
