@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'pages/home'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  root "groups#index"
+  root 'pages#home'
   resources :groups do
     resources :group_payments, only: [:index]
     resources :payments, only: [:new, :create]
