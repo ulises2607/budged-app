@@ -1,0 +1,11 @@
+<h1> Pagina de nuevo pago </h1>
+
+<%= form_with(model: @payment, url: group_payments_path , method: :post) do |form|%>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: 'Enter name', class: 'form-control' %>
+
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 'any', placeholder: 'Enter amount', class: 'form-control' %>
+    
+    <%= form.submit %>
+<% end %>

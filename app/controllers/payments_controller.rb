@@ -10,10 +10,15 @@ class PaymentsController < ApplicationController
     end
     
     def create
+
         @payment = Payment.new(payment_params)
-        @payment.user = current_user
+        @payment.author = current_user
+        @group = Group.find(params[:group_id])
+        puts @payment.inspect
         if @payment.save
-        redirect_to payments_path
+        @group_payment = GroupPayment.new(group_id: params[:group_id], payment_id: @payment.id)
+        @group_payment.save
+        redirect_to group_group_payments_path(@group)
         else
         render :new
         end
