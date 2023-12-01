@@ -1,34 +1,86 @@
-<h2>Sign up</h2>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
+    .form-group {
+      margin-bottom: 1rem;
+    }
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    label {
+      font-weight: bold;
+    }
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    input[type="text"],
+    input[type="email"],
+    input[type="password"]  {
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      margin-top: 5px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+    }
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
 
-<%= render "devise/shared/links" %>
+<div class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-group' }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Sign up", class: "custom-button" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
