@@ -1,20 +1,112 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <style>
-  .send-money-icon {
-    width: 50px;
-    height: 50px;
-  }
+
+    body {
+        background-color: #f0f2f1;
+    }
+
+    nav {
+      background-color: #3778c2;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories-title {
+      font-size: 1.5rem;
+      display: flex;
+      align-self: center;
+    }
+
+    .back-icon {
+      cursor: pointer;
+      height: 1.5rem;
+    }
+
+    .main-card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 1rem 1rem 1rem 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .payment-date {
+      font-size: 0.8rem;
+      color: #a5a5a5;
+    }
+
+    .card-img-top {
+        height: 5rem;
+        object-fit: cover;
+        width: 5rem;
+    }
+
+    .payment-card-container {
+      height: 60vh;
+      overflow-y: scroll;
+    }
+
+    .btn-add-payment {
+      background-color: #5fb523;
+      color: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    
 
 </style>
 
-<h1>Group payments pagina principal</h1>
+<nav>
+    <%= link_to groups_path do %>
+      <%= image_tag("backarrow.png", alt: "logo", class: "back-icon") %>
+    <% end %>
+    <h1 class="categories-title">PAYMENTS</h1>
+    <div></div>
+</nav>
 
-<p> Total: $ <%= @total %> </p>
+<section class="payments-container">
+  <div class="main-card">
+    <img src="<%= @group.icon %>" alt="<%= @group.name %> Icon" class="card-img-top">
+    <h5 class="card-title"><%= @group.name %></h5>
+    <p class="card-text">$<%= @total %></p>
+  </div>
 
-<%@payments.each do |payment| %>
-  <%= image_tag("send-money.png", alt: "send money icon", class: "send-money-icon") %>
-  <p> <%= payment.name %> </p>
-  <p>$ <%= payment.amount %> </p>
-  <p> <%= payment.created_at.strftime('%d %b %Y') %> </p>
-<% end %>
+  <div class="payment-card-container">
+    <%@payments.each do |payment| %>
+        <div class="card" >
+          <div class="card-payment">
+            <p> <%= payment.name %> </p>
+            <p class="payment-date"> <%= payment.created_at.strftime('%d %b %Y') %> </p>
+          </div>
+          <p>$ <%= payment.amount %> </p>
+      </div>
+      <% end %>
+  </div>
+  
 
-<%= link_to "Save", new_group_payment_path %>
+  <%= link_to "Add new Payment", new_group_payment_path, class: "btn-add-payment" %>
+</section>
+
+
