@@ -33,7 +33,7 @@ main {
   }
 
   to {
-    transform: translateY(50px);
+    transform: translateY(25px);
   }
 }
 
