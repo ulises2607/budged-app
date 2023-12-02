@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @payments = current_user.payments
+    @payments = current_user.payments.includes(:groups)
   end
 
   def new

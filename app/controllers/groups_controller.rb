@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   def index
     if user_signed_in?
-      @groups = current_user.groups
+      @groups = current_user.groups.includes(:payments)
       @total_payments = GroupPayment.joins(:payment, :group).where(groups: { user_id: current_user.id })
       @total_payments = @total_payments.group('groups.id')
       @total_payments = @total_payments.sum('payments.amount')
