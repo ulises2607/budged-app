@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe GroupPaymentsController, type: :request do
   let(:user) { create(:user) }
-  let(:group) { create(:group, user: user) }
-  let(:group_payment) { create(:group_payment, group: group) }
+  let(:group) { create(:group, user:) }
+  let(:group_payment) { create(:group_payment, group:) }
   let(:valid_attributes) { attributes_for(:group_payment) }
   let(:invalid_attributes) { attributes_for(:group_payment, name: nil) }
 

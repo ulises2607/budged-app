@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.feature 'Group Payments page', type: :feature do
   let(:user) { create(:user) }
-  let(:group) { create(:group, user: user) }
+  let(:group) { create(:group, user:) }
 
   before do
     visit new_user_session_path
@@ -20,7 +20,6 @@ RSpec.feature 'Group Payments page', type: :feature do
 
     # Asegúrate de que la página tenga el contenido que esperas
     expect(page).to have_content('PAYMENTS')
-
   end
 
   # Puedes agregar más escenarios de prueba según tus necesidades
@@ -31,6 +30,5 @@ RSpec.feature 'Group Payments page', type: :feature do
     click_link 'Add new Payment'
 
     expect(page).to have_content('NEW PAYMENT')
- 
   end
 end

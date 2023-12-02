@@ -3,8 +3,8 @@ require 'rails_helper'
 
 RSpec.describe PaymentsController, type: :request do
   let(:user) { create(:user) }
-  let(:group) { create(:group, user: user) }
-  let(:payment) { create(:payment, user: user) }
+  let(:group) { create(:group, user:) }
+  let(:payment) { create(:payment, user:) }
   let(:valid_attributes) { attributes_for(:payment) }
   let(:invalid_attributes) { attributes_for(:payment, name: nil) }
 
@@ -19,13 +19,12 @@ RSpec.describe PaymentsController, type: :request do
     end
   end
 
-
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Payment' do
-        expect {
+        expect do
           post group_payments_path(group), params: { payment: valid_attributes }
-        }.to change(Payment, :count).by(1)
+        end.to change(Payment, :count).by(1)
       end
 
       it 'redirects to the created payment' do
@@ -36,9 +35,9 @@ RSpec.describe PaymentsController, type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Payment' do
-        expect {
+        expect do
           post group_payments_path(group), params: { payment: invalid_attributes }
-        }.to change(Payment, :count).by(0)
+        end.to change(Payment, :count).by(0)
       end
 
       it 'renders new template' do

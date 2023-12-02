@@ -2,9 +2,8 @@
 require 'rails_helper'
 
 RSpec.describe GroupsController, type: :request do
-  
   let(:user) { create(:user) }
-  let(:group) { create(:group, user: user) }
+  let(:group) { create(:group, user:) }
   let(:valid_attributes) { attributes_for(:group) }
   let(:invalid_attributes) { attributes_for(:group, name: nil) }
 
@@ -29,9 +28,9 @@ RSpec.describe GroupsController, type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       it 'creates a new Group' do
-        expect {
+        expect do
           post '/groups', params: { group: valid_attributes }
-        }.to change(Group, :count).by(1)
+        end.to change(Group, :count).by(1)
       end
 
       it 'redirects to the created group' do
@@ -42,9 +41,9 @@ RSpec.describe GroupsController, type: :request do
 
     context 'with invalid parameters' do
       it 'does not create a new Group' do
-        expect {
+        expect do
           post '/groups', params: { group: invalid_attributes }
-        }.to change(Group, :count).by(0)
+        end.to change(Group, :count).by(0)
       end
 
       it 'renders new template' do
