@@ -2,12 +2,32 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #f0f2f1;
       padding: 20px;
     }
 
+    nav {
+      background-color: #3778c2;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories-title {
+      font-size: 1.5rem;
+      display: flex;
+      align-self: center;
+    }
+
+    .back-icon {
+      cursor: pointer;
+      height: 1.5rem;
+    }
+
     .container {
-      max-width: 400px;
+      width: 100%;
       margin: 0 auto;
       background-color: #ffffff;
       padding: 20px;
@@ -47,10 +67,15 @@
       background-color: #0056b3;
     }
   </style>
-</head>
 <body>
 
-  <h1 class="text-center">New Group Page</h1>
+  <nav>
+    <%= link_to groups_path do %>
+      <%= image_tag("backarrow.png", alt: "logo", class: "back-icon") %>
+    <% end %>
+    <h1 class="categories-title">NEW CATEGORY</h1>
+    <div></div>
+  </nav>
 
   <div class="container">
     <%= form_with(model: @group, method: :post, html: { class: 'd-flex flex-column' }) do |form| %>
@@ -67,7 +92,7 @@
       <%= form.hidden_field :user_id, value: current_user.id %>
 
       <div class="form-group">
-        <%= form.submit "Create Group", class: "btn btn-primary" %>
+        <%= form.submit "ADD CATEGORY", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>

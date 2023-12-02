@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
 
   def new
     @payment = Payment.new
+    @group = Group.find(params[:group_id])
   end
 
   def create
