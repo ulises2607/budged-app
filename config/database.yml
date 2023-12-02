@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: budged_app_production
-  username: budged_app
-  password: <%= ENV["BUDGED_APP_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
