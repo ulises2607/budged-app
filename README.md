@@ -69,6 +69,10 @@
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
+- https://spend-smart-sidekick.onrender.com/
+
+- https://www.loom.com/share/f4b6c8c1685b45539a134f9f743e7580
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
