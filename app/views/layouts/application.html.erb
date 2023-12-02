@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova:300,300i&display=swap">
     <%= stylesheet_link_tag "application", 'ripple' ,"data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    
     <%= yield %>
+
   </body>
 </html>

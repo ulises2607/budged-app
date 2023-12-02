@@ -1,5 +1,5 @@
 class Group < ApplicationRecord
-  has_many :payments, through: :group_payments
+  has_many :group_payments, dependent: :destroy
   belongs_to :user
 
   validates :name, presence: true

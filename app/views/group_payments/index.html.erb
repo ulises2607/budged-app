@@ -1,7 +1,17 @@
+<style>
+  .send-money-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+</style>
+
 <h1>Group payments pagina principal</h1>
 
+<p> Total: $ <%= @total %> </p>
+
 <%@payments.each do |payment| %>
-  <%= image_tag("send-money.png", alt: "send money icon") %>
+  <%= image_tag("send-money.png", alt: "send money icon", class: "send-money-icon") %>
   <p> <%= payment.name %> </p>
   <p>$ <%= payment.amount %> </p>
   <p> <%= payment.created_at.strftime('%d %b %Y') %> </p>
