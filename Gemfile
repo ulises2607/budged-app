@@ -72,3 +72,5 @@ end
 gem 'cancancan'
 gem 'devise'
 gem 'rubocop'
+gem 'rails-controller-testing'
+
