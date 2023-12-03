@@ -71,7 +71,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 - https://spend-smart-sidekick.onrender.com/
 
-- https://www.loom.com/share/f4b6c8c1685b45539a134f9f743e7580
+- https://www.loom.com/share/904748623a264044bdddef260bc09d7c
 
 
 
