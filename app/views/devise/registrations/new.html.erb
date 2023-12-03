@@ -1,0 +1,111 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+
+      nav {
+      background-color: #3778c2;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .categories-title {
+      font-size: 1.5rem;
+      display: flex;
+      align-self: center;
+    }
+
+    .back-icon {
+      cursor: pointer;
+      height: 1.5rem;
+    }
+
+
+    .container {
+      width: 100%;
+      margin: 0 auto;
+      background-color: #ffffff;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"]  {
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      margin-top: 5px;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+      border: 1px solid #ced4da;
+      border-radius: 0.25rem;
+    }
+
+    input[type="submit"] {
+      background-color: transparent;
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 0.25rem;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+<section class="container">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'form-group' }) do |f| %>
+    <nav>
+    <%= link_to root_path do %>
+      <%= image_tag("backarrow.png", alt: "logo", class: "back-icon") %>
+    <% end %>
+    <h1 class="categories-title">REGISTRATION</h1>
+    <div><%= f.submit "NEXT", class: "custom-button" %></div>
+  </nav>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "custom-input" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "custom-input" %>
+    </div>
+
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</section>
